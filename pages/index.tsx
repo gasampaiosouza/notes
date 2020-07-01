@@ -1,7 +1,10 @@
+import List from '../components/List/List';
+import Header from '../components/Header/Header';
+
 const Index = () => (
-  <div>
-    <h1>Welcome to Next.js!</h1>
-    <h2>Again!</h2>
+  <div className="container">
+    <Header />
+    <List />
   </div>
 );
 
