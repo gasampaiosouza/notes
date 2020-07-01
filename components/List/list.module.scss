@@ -1,0 +1,48 @@
+.list {
+  width: 800px;
+  transition: max-height 0.5s ease-in-out;
+
+  &--item {
+    user-select: none;
+    position: relative;
+    cursor: pointer;
+    transition: max-height 1000ms ease-out;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    padding: 10px;
+    margin: 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #eee;
+
+    &__info {
+      width: 100%;
+      padding: 5px 0;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    &__note {
+      padding: 10px;
+      max-height: auto;
+      width: 800px;
+      background: #eee;
+    }
+  }
+}
+
+.hidden {
+  background: red;
+}
+
+.show {
+  background: green;
+}

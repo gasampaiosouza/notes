@@ -1,0 +1,26 @@
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  display: none;
+
+  background: rgba(#212121, 0.5);
+  z-index: 100;
+}
+
+.modal--container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background: #fff;
+  width: 500px;
+  height: 500px;
+  border-radius: 5px;
+
+  box-shadow: 2px 2px 15px rgba(#212121, 0.15);
+}
