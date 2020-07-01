@@ -5,7 +5,7 @@ import toggleNote from './toggleNote';
 function List() {
   const [content, setContent] = useState([
     {
-      title: 'item 1',
+      title: 'Things i need to buy',
       date: '29/06/2020',
       note:
         'lorem bla bla something really cool lorem bla bla something really cool lorem bla bla something really coollorem bla bla something really cool lorem bla bla something really cool lorem bla bla something really cool',
@@ -17,10 +17,23 @@ function List() {
       note: 'lorem bla bla something really cool',
       id: 2,
     },
+    {
+      title: 'item 3',
+      date: '29/06/2020',
+      note: 'lorem bla bla something really cool',
+      id: 3,
+    },
   ]);
 
   return (
     <div className={style['list']}>
+      <h1 className={style['list--title']}>Your notes</h1>
+
+      <div className={style['list--header']}>
+        <span className={style['list--header__title']}>TITLE</span>
+        <span className={style['list--header__date']}>DATE</span>
+      </div>
+
       {content.map((item, i) => {
         return (
           <div

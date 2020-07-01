@@ -1,31 +1,28 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import Modal from '../Modal/Modal';
 import style from './header.module.scss';
+import Button from '../Button/Button';
 
-const Header = () => {
-  const [visibility, setVisibility] = useState('not-visible');
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-  function toggleModal() {
-    const toggleClass = visibility === 'visible' ? 'not-visible' : 'visible';
+const App = () => {
+  const [show, setShow] = useState(false);
 
-    return setVisibility(toggleClass);
-  }
+  const showModal = () => setShow(true);
+  const hideModal = () => setShow(false);
 
   return (
-    <div>
-      <button className="btn" onClick={toggleModal}>
-        new note
-      </button>
+    <div className={style['header']}>
+      <h1 className={style['header--title']}>Notes app</h1>
 
-      {/* modal */}
-      <div
-        className={`${style['overlay']} ${visibility}`}
-        onClick={toggleModal}
-      >
-        {/* separar isso */}
-        <div className={style['modal--container']}></div>
-      </div>
+      <Button showFunc={showModal}>
+        <FontAwesomeIcon icon={faPlus} />
+      </Button>
+
+      <Modal handleClose={hideModal} show={show} />
     </div>
   );
 };
 
-export default Header;
+export default App;

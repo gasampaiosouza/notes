@@ -1,0 +1,46 @@
+@import '../Header/header.module.scss';
+
+.button {
+  position: relative;
+  cursor: pointer;
+
+  outline: none;
+  border: none;
+
+  padding: 15px 50px;
+  border-radius: 5px;
+
+  color: $main;
+  background: transparent;
+  // border: 2px solid $main;
+
+  font-size: 1em;
+  font-weight: 500;
+  box-shadow: 0 5px 15px rgba($main, 0.25);
+
+  transition: background, color 0.2s ease-in-out;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    width: 0;
+    height: 100%;
+    background: $main;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition-property: left, width;
+    transition: 0.25s ease-in-out;
+    z-index: -1;
+  }
+
+  &:hover {
+    color: #fff !important;
+
+    &::after {
+      left: 0;
+      width: 100%;
+    }
+  }
+}
