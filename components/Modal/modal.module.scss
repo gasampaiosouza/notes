@@ -1,4 +1,5 @@
 @import '../../animations.scss';
+@import '../Header/header.module.scss';
 
 .modal {
   position: absolute;
@@ -28,11 +29,92 @@
     transform: translate(-50%, -50%);
 
     width: 75%;
-    height: 500px;
     background: #fff;
+    padding: 25px 0;
+
+    border-radius: 5px;
 
     z-index: 3;
     animation: appear 0.25s ease-in-out;
+
+    &__close {
+      cursor: pointer;
+      position: absolute;
+
+      top: 15px;
+      right: 20px;
+
+      width: 20px;
+
+      color: $main;
+    }
+
+    &__title {
+      margin-bottom: 15px;
+    }
+
+    .form {
+      width: 85%;
+
+      margin: 0 auto;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    input,
+    textarea {
+      border: none;
+      outline: none;
+
+      padding: 15px;
+
+      box-shadow: 5px 5px 15px rgba($black, 0.15);
+      font-size: 1em;
+      border-radius: 5px;
+      letter-spacing: 0.25px;
+
+      &::placeholder {
+        opacity: 0.25;
+      }
+    }
+
+    label {
+      text-align: left;
+      margin-top: 25px;
+      margin-bottom: 10px;
+      color: rgba($black, 0.75);
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    input.title {
+      margin-bottom: 5px;
+    }
+
+    textarea.description {
+      resize: vertical;
+      font-family: inherit;
+
+      max-height: 500px;
+      min-height: 200px;
+
+      margin-bottom: 25px;
+      line-height: 25px;
+
+      &::-webkit-scrollbar {
+        width: 8px;
+        background: #fff;
+        cursor: default !important;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: $main;
+        border-radius: 50px;
+      }
+    }
   }
 }
 

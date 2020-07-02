@@ -1,29 +1,21 @@
-import { useState } from 'react';
 import style from './list.module.scss';
 import toggleNote from './toggleNote';
+import { useRef, SetStateAction } from 'react';
 
-function List() {
-  const [content, setContent] = useState([
-    {
-      title: 'Things i need to buy',
-      date: '29/06/2020',
-      note:
-        'lorem bla bla something really cool lorem bla bla something really cool lorem bla bla something really coollorem bla bla something really cool lorem bla bla something really cool lorem bla bla something really cool',
-      id: 1,
-    },
-    {
-      title: 'item 2',
-      date: '29/06/2020',
-      note: 'lorem bla bla something really cool',
-      id: 2,
-    },
-    {
-      title: 'item 3',
-      date: '29/06/2020',
-      note: 'lorem bla bla something really cool',
-      id: 3,
-    },
-  ]);
+type listType = {
+  content: {
+    title: string;
+    desc: string;
+    id: number;
+  }[];
+  setContent: any;
+};
+
+function List({ content, setContent }: listType) {
+  const listItem = useRef(null);
+
+  const deleteNote = (list_id: string) =>
+    setContent(content.filter((item) => item.id.toString() != list_id));
 
   return (
     <div className={style['list']}>
@@ -34,25 +26,41 @@ function List() {
         <span className={style['list--header__date']}>DATE</span>
       </div>
 
-      {content.map((item, i) => {
-        return (
-          <div
-            className={`${item} ${style['list--item']}`}
-            onClick={toggleNote}
-            key={i}
-            style={{ maxHeight: '50px' }}
-          >
-            <div className={style['list--item__info']}>
-              <p className={style['list--item__title']}>{item.title}</p>
-              <p className={style['list--item__date']}>{item.date}</p>
-            </div>
+      {Object.keys(content).length !== 1 ? (
+        content.map((item) => {
+          if (!item.title) return;
 
-            <div className={style['list--item__note']}>
-              <p>{item.note}</p>
+          return (
+            <div
+              className={`${item} ${style['list--item']}`}
+              onClick={toggleNote}
+              key={item.id}
+              style={{ maxHeight: '50px' }}
+              ref={listItem}
+              id={item.id.toString()}
+              onContextMenu={(ev) => {
+                ev.preventDefault();
+                const clickedListID = ev.currentTarget.id;
+
+                deleteNote(clickedListID);
+              }}
+            >
+              <div className={style['list--item__info']}>
+                <p className={style['list--item__title']}>{item.title}</p>
+                {/* <p className={style['list--item__date']}>{item.date}</p> */}
+              </div>
+
+              <div className={style['list--item__note']}>
+                <p>{item.desc}</p>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })
+      ) : (
+        <p className={`${style['list--empty__message']} desc`}>
+          You do not have any notes
+        </p>
+      )}
     </div>
   );
 }

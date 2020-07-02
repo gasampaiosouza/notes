@@ -1,21 +1,20 @@
 import style from './modal.module.scss';
+import Box from './Box';
 
 type modalType = {
-  handleClose: any;
-  show: boolean;
+  handleClose?: any;
+  show?: boolean;
+  changeState?: any;
 };
 
-const Modal = ({ handleClose, show }: modalType) => {
+const Modal = ({ handleClose, show, changeState }: modalType) => {
   const showHideClassName = show ? 'display-block' : 'display-none';
 
   return (
     <div className={`modal ${style[showHideClassName]}`}>
       <div className={`${style['modal--overlay']}`} onClick={handleClose}></div>
 
-      <div className={`${style['modal--box']}`}>
-        <h1>hello world</h1>
-        <button onClick={handleClose}>close</button>
-      </div>
+      <Box handleClose={handleClose} changeState={changeState} />
     </div>
   );
 };

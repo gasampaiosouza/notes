@@ -8,9 +8,12 @@
   border-radius: 5px;
 
   &--title {
-    font-weight: 900;
     font-size: 1.5em;
     margin: 25px;
+  }
+
+  &--empty__message {
+    margin: 25px 0;
   }
 
   &--header {
