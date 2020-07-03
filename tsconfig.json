@@ -64,5 +64,15 @@
     "jsx": "preserve"
   },
   "exclude": ["node_modules"],
+<<<<<<< HEAD
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/Modal/Box.js"]
+=======
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "components/List/List.tsc",
+    "components/Header/Header.js"
+  ]
+>>>>>>> localstorage
 }

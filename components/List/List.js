@@ -2,20 +2,20 @@ import style from './list.module.scss';
 import toggleNote from './toggleNote';
 import { useRef } from 'react';
 
-type listType = {
-  content: {
-    title: string;
-    desc: string;
-    date: string;
-    id: number;
-  }[];
-  setContent: any;
-};
+// type listType = {
+//   content: {
+//     title: string;
+//     desc: string;
+//     date: string;
+//     id: number;
+//   }[];
+//   setContent: any;
+// };
 
-function List({ content, setContent }: listType) {
+function List({ content, setContent }) {
   const listItem = useRef(null);
 
-  const deleteNote = (list_id: string) =>
+  const deleteNote = (list_id) =>
     setContent(content.filter((item) => item.id.toString() != list_id));
 
   return (
@@ -28,6 +28,7 @@ function List({ content, setContent }: listType) {
       </div>
 
       {Object.keys(content).length !== 1 ? (
+        (localStorage.setItem('listItems', JSON.stringify(content)),
         content.map((item) => {
           if (!item.title) return;
 
@@ -56,7 +57,7 @@ function List({ content, setContent }: listType) {
               </div>
             </div>
           );
-        })
+        }))
       ) : (
         <p className={`${style['list--empty__message']} desc`}>
           You do not have any notes
