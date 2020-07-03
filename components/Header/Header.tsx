@@ -26,9 +26,9 @@ const App = () => {
     },
   ]);
 
-  // useEffect(() => {
-  //   return localStorage.setItem('listItems', JSON.stringify(content));
-  // }, [content]);
+  useEffect(() => {
+    return localStorage.setItem('listItems', JSON.stringify(content));
+  }, [content]);
 
   const showModal = () => setShow(true);
   const hideModal = () => setShow(false);
