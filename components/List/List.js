@@ -4,21 +4,21 @@ import { useRef } from 'react';
 
 function List({ content, setContent }) {
   const listItem = useRef(null);
+  const isListClear = Object.keys(content).length !== 1;
 
   const deleteNote = (list_id) => {
+    const contentDefaultValue = [
+      {
+        title: '',
+        desc: '',
+        date: '',
+        id: 1,
+      },
+    ];
+
     setContent(content.filter((item) => item.id.toString() != list_id));
-    return Object.keys(content).length !== 1
-      ? localStorage.setItem(
-          'listItems',
-          JSON.stringify([
-            {
-              title: '',
-              desc: '',
-              date: '',
-              id: 1,
-            },
-          ])
-        )
+    return isListClear
+      ? localStorage.setItem('listItems', JSON.stringify(contentDefaultValue))
       : 0;
   };
 
@@ -31,19 +31,19 @@ function List({ content, setContent }) {
         <span className={style['list--header__date']}>DATE</span>
       </div>
 
-      {Object.keys(content).length !== 1 ? (
+      {isListClear ? (
         (localStorage.setItem('listItems', JSON.stringify(content)),
-        content.map((item) => {
-          if (!item.title) return;
+        content.map(({ title, id, desc, date }) => {
+          if (!title) return;
 
           return (
             <div
-              className={`${item} ${style['list--item']}`}
+              className={`${style['list--item']}`}
               onClick={toggleNote}
-              key={item.id}
+              key={id}
               style={{ maxHeight: '50px' }}
               ref={listItem}
-              id={item.id.toString()}
+              id={id.toString()}
               onContextMenu={(ev) => {
                 ev.preventDefault();
                 const clickedListID = ev.currentTarget.id;
@@ -52,12 +52,12 @@ function List({ content, setContent }) {
               }}
             >
               <div className={style['list--item__info']}>
-                <p className={style['list--item__title']}>{item.title}</p>
-                <p className={style['list--item__date']}>{item.date}</p>
+                <p className={style['list--item__title']}>{title}</p>
+                <p className={style['list--item__date']}>{date}</p>
               </div>
 
               <div className={style['list--item__note']}>
-                <p>{item.desc}</p>
+                <p>{desc}</p>
               </div>
             </div>
           );
