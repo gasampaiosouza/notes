@@ -1,6 +1,8 @@
-# Notes app
+# 📔 Notes app
 
 I made a notes-app, so you can save your notes and remember what you need to do in you day!
+
+## 💻 Quick Demo
 
 [![Page first view](https://j.gifs.com/gZOm09.gif)](https://gifs.com/gif/notes-app-gZOm09)
 
