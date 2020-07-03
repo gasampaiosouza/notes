@@ -19,7 +19,7 @@ I made a notes-app, so you can save your notes and remember what you need to do 
 
 - Then, go into the folder you've created and open it <br />
   `cd notes && code .`
-  > **code dot** | is for VSCode
+  > **code dot** is for VSCode
 
 <br />
 
