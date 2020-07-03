@@ -1,31 +1,47 @@
 import { useRef } from 'react';
 import style from './modal.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Button from '../Button/Button';
 
 type boxType = {
-  handleClose?: any;
+  closeModal?: any;
   changeState?: any;
+  state?: any;
 };
 
-const Box = ({ handleClose, changeState }: boxType) => {
+const Box = ({ closeModal, changeState, state }: boxType) => {
   const titleInput = useRef(null);
   const descInput = useRef(null);
 
-  const createNote = () => {
+  function createNote() {
     const title: HTMLInputElement | null = titleInput.current;
     const desc: HTMLTextAreaElement | null = descInput.current;
 
-    handleClose();
-    changeState({
+    const getTodayDate = () => {
+      const date = new Date();
+      const day = date.getDate();
+      const month = date.getMonth() + 1;
+      const year = date.getFullYear();
+
+      const fixLength = (date: number) =>
+        date.toString().length <= 1 ? `0${date}` : date;
+
+      return `${fixLength(day)}/${fixLength(month)}/${fixLength(year)}`;
+    };
+
+    const itemInfo = {
       title: title!.value,
       desc: desc!.value,
-    });
+      date: getTodayDate(),
+    };
+
+    closeModal();
+    changeState(itemInfo);
 
     title!.value = '';
     desc!.value = '';
-  };
+  }
 
   return (
     <div className={`${style['modal--box']}`}>
@@ -33,7 +49,7 @@ const Box = ({ handleClose, changeState }: boxType) => {
 
       <FontAwesomeIcon
         icon={faTimes}
-        onClick={handleClose}
+        onClick={closeModal}
         className={style['modal--box__close']}
       />
 
@@ -58,7 +74,9 @@ const Box = ({ handleClose, changeState }: boxType) => {
         ></textarea>
       </div>
 
-      <Button text="Create" callback={createNote} />
+      <Button callback={createNote} rounded>
+        <FontAwesomeIcon icon={faPlus} />
+      </Button>
     </div>
   );
 };

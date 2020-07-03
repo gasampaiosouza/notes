@@ -1,11 +1,12 @@
 import style from './list.module.scss';
 import toggleNote from './toggleNote';
-import { useRef, SetStateAction } from 'react';
+import { useRef } from 'react';
 
 type listType = {
   content: {
     title: string;
     desc: string;
+    date: string;
     id: number;
   }[];
   setContent: any;
@@ -47,7 +48,7 @@ function List({ content, setContent }: listType) {
             >
               <div className={style['list--item__info']}>
                 <p className={style['list--item__title']}>{item.title}</p>
-                {/* <p className={style['list--item__date']}>{item.date}</p> */}
+                <p className={style['list--item__date']}>{item.date}</p>
               </div>
 
               <div className={style['list--item__note']}>

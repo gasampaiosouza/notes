@@ -2,25 +2,17 @@ import React from 'react';
 import style from './button.module.scss';
 
 type buttonType = {
-  showFunc?: any;
-  text?: string;
-  classname?: string;
   callback?: any;
+  rounded?: boolean;
 };
 
-const Button: React.FC<buttonType> = ({
-  children,
-  showFunc,
-  text,
-  classname,
-  callback,
-}) => {
+const Button: React.FC<buttonType> = ({ children, rounded, callback }) => {
   return (
     <button
-      className={`${style['button']} ${classname}`}
-      onClick={showFunc || callback}
+      className={`${style['button']} ${rounded && style['rounded']} `}
+      onClick={callback}
     >
-      {children || text}
+      {children}
     </button>
   );
 };
