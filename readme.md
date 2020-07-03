@@ -4,7 +4,7 @@ I made a notes-app, so you can save your notes and remember what you need to do 
 
 [![Page first view](https://j.gifs.com/gZOm09.gif)](https://gifs.com/gif/notes-app-gZOm09)
 
-> a quick demo
+> it's crashing a bit, sorry for that
 
 ## ⚙️ Installation
 
