@@ -10,12 +10,48 @@
 
 @keyframes appear-bottom {
   from {
+    transform: translateY(25px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes appear-top {
+  from {
+    transform: translateY(-25px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes appear-left {
+  from {
     transform: translateX(-25px);
     opacity: 0;
   }
 
   to {
-    transform: translateX(0);
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes appear-right {
+  from {
+    transform: translateX(25px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(0);
     opacity: 1;
   }
 }

@@ -17,6 +17,12 @@ h1 {
   font-weight: 900;
 }
 
+::selection,
+::-moz-selection {
+  background: $main;
+  color: #fff;
+}
+
 .container {
   width: 75%;
   margin: 0 auto;

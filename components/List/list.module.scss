@@ -11,10 +11,14 @@
   &--title {
     font-size: 1.5em;
     margin: 25px;
+
+    animation: appear-top $animation-time ease-in-out;
   }
 
   &--empty__message {
     margin: 25px 0;
+
+    animation: appear-bottom $animation-time ease-in-out;
   }
 
   &--header {
@@ -27,6 +31,14 @@
 
     font-weight: 900;
     letter-spacing: 0.25px;
+
+    &__title {
+      animation: appear-left $animation-time ease-in-out;
+    }
+
+    &__date {
+      animation: appear-right $animation-time ease-in-out;
+    }
   }
 
   &--item {
@@ -45,6 +57,7 @@
     justify-content: space-between;
     align-items: center;
     border: 0.5px solid #f2f2f2;
+    animation: appear-left $animation-time ease-in-out;
 
     &:first-child,
     &:last-child {

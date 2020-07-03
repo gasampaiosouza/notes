@@ -2,13 +2,16 @@
 
 $main: #fd5e53;
 $black: #272343;
+$animation-time: 0.75s;
 
 .header {
   &--title {
+    animation: appear-top $animation-time ease-in-out;
     margin: 25px;
   }
 
   &--desc {
     margin: 25px 0;
+    animation: appear-left $animation-time ease-in-out;
   }
 }
