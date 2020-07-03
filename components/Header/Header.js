@@ -7,13 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import List from '../List/List';
 
-// type noteType = {
-//   title: string;
-//   desc: string;
-//   date: string;
-//   id: number;
-// };
-
 const App = () => {
   const [show, setShow] = useState(false);
 
@@ -26,17 +19,8 @@ const App = () => {
     },
   ]);
 
-<<<<<<< HEAD:components/Header/Header.tsx
-  useEffect(() => {
-    return localStorage.setItem('listItems', JSON.stringify(content));
-  }, [content]);
-
-=======
->>>>>>> localstorage:components/Header/Header.js
   const showModal = () => setShow(true);
   const hideModal = () => setShow(false);
-
-  console.log(`content: ${content}`);
 
   useEffect(() => {
     if (typeof window !== 'undefined' && localStorage.getItem('listItems'))

@@ -2,21 +2,25 @@ import style from './list.module.scss';
 import toggleNote from './toggleNote';
 import { useRef } from 'react';
 
-// type listType = {
-//   content: {
-//     title: string;
-//     desc: string;
-//     date: string;
-//     id: number;
-//   }[];
-//   setContent: any;
-// };
-
 function List({ content, setContent }) {
   const listItem = useRef(null);
 
-  const deleteNote = (list_id) =>
+  const deleteNote = (list_id) => {
     setContent(content.filter((item) => item.id.toString() != list_id));
+    return Object.keys(content).length !== 1
+      ? localStorage.setItem(
+          'listItems',
+          JSON.stringify([
+            {
+              title: '',
+              desc: '',
+              date: '',
+              id: 1,
+            },
+          ])
+        )
+      : 0;
+  };
 
   return (
     <div className={style['list']}>
