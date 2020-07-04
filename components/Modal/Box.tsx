@@ -18,6 +18,9 @@ const Box = ({ closeModal, changeState, state }: boxType) => {
     const title: HTMLInputElement | null = titleInput.current;
     const desc: HTMLTextAreaElement | null = descInput.current;
 
+    if (!title!.value || !desc!.value)
+      return alert('Please, fill all the fields!');
+
     const getTodayDate = () => {
       const date = new Date();
       const day = date.getDate();
