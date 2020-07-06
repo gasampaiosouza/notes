@@ -15,6 +15,48 @@
     animation: appear-top $animation-time ease-in-out;
   }
 
+  &--search {
+    max-width: 340px;
+    color: $black;
+    margin: 0 auto;
+
+    display: flex;
+    box-shadow: 2px 2px 15px rgba($black, 0.1);
+    border-radius: 10px;
+    margin-bottom: 25px;
+
+    &__input {
+      border: none;
+      width: 100%;
+      font-size: 1em;
+      padding: 10px;
+    }
+
+    &__icon {
+      position: relative;
+      width: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &::after {
+        content: '';
+        position: absolute;
+
+        width: 1px;
+        height: 50%;
+        background: rgba($black, 0.15);
+        right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+      }
+    }
+
+    svg {
+      width: 15px;
+    }
+  }
+
   &--empty__message {
     margin: 25px 0;
 
