@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import style from './modal.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
-import Button from '../Button/Button';
+import Button from '../Button';
 
 type boxType = {
   closeModal?: any;

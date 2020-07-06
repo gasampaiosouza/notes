@@ -1,11 +1,11 @@
 import { useState, useEffect, useReducer } from 'react';
-import Modal from '../Modal/Modal';
+import Modal from '../Modal';
 import style from './header.module.scss';
-import Button from '../Button/Button';
+import Button from '../Button';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import List from '../List/List';
+import List from '../List';
 
 const App = () => {
   const [show, setShow] = useState(false);
