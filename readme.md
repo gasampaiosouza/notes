@@ -24,7 +24,7 @@ I made a notes-app, so you can save your notes and remember what you need to do 
 <br />
 
 - Inside the folder, and your favorite code editor, run: <br />
-  `npm install` or `yarn add` in your terminal to install the dependencies, then:
+  `npm install` or `yarn` in your terminal to install the dependencies, then:
   <br />
 
   `npm run dev`, and open [http://localhost:3000/](http://localhost:3000/) in the browser.
